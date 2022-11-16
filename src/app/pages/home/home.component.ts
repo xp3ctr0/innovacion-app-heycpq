@@ -9,20 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  public check: boolean = true;
+  val: any;
 
   constructor(private route: Router) {}
 
   ngOnInit() {
     // this.route.navigate(['/login']);
-  }
-
-  x() {
-    if (this.check) {
-      this.check = false;
-    } else {
-      this.check = true;
-    }
-    alert(this.check);
   }
 }

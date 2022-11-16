@@ -57,22 +57,22 @@
 <section class="container">
   <!-- <p>Hola Jhon,</p> -->
 
-  <div (change)="x()" class="form-check">
-    <input
-      class="form-check-input"
-      type="checkbox"
-      value=""
-      id="flexCheckDefault"
-    />
-    <label class="form-check-label" for="flexCheckDefault"> </label>
+  <div>
+    <input type="radio" name="rad1" value="data" [(ngModel)]="val" /> Data
+    <input type="radio" name="rad1" value="none" [(ngModel)]="val" /> None
+  </div>
+
+  <div *ngIf="val === 'data'">
+    <b>Data is valid.</b>
+  </div>
+  <div *ngIf="val === 'none'">
+    <b>Data is invalid.</b>
   </div>
 
   <p class="fw-bold">PRÓXIMO EVENTO</p>
 
-  <pre>{{ check }}</pre>
-  <div *ngIf="check" class="alert alert-primary" role="alert">
-    No tienes citas pendientes
-  </div>
+  <!-- <pre>{{ check }}</pre> -->
+  <div class="alert alert-primary" role="alert">No tienes citas pendientes</div>
 
   <p>Jhon Edinson, estas son tus citas programadas o pendientes</p>
 
