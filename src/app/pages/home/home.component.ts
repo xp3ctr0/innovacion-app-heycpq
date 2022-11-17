@@ -9,11 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  val: any;
+  val: boolean = false;
 
   constructor(private route: Router) {}
 
   ngOnInit() {
     // this.route.navigate(['/login']);
+  }
+
+  x() {
+    if (!this.val) {
+      this.val = true;
+    } else {
+      this.val = false;
+    }
+  }
+
+  r() {
+    // alert('jojojo');
   }
 }

@@ -55,39 +55,39 @@
 </section>
 
 <section class="container">
-  <!-- <p>Hola Jhon,</p> -->
-
   <div>
-    <input type="radio" name="rad1" value="data" [(ngModel)]="val" /> Data
-    <input type="radio" name="rad1" value="none" [(ngModel)]="val" /> None
-  </div>
-
-  <div *ngIf="val === 'data'">
-    <b>Data is valid.</b>
-  </div>
-  <div *ngIf="val === 'none'">
-    <b>Data is invalid.</b>
+    <input type="checkbox" (change)="x()" />
+    <!-- <input type="checkbox" name="rad3" [checked]="value === 'Trust'" (click)="value = 'Trust'"> Trust -->
   </div>
 
   <p class="fw-bold">PRÓXIMO EVENTO</p>
 
-  <!-- <pre>{{ check }}</pre> -->
-  <div class="alert alert-primary" role="alert">No tienes citas pendientes</div>
+  <p *ngIf="val">Hola Jhon Edinson,</p>
+  <p *ngIf="!val">Jhon Edinson, estas son tus citas programadas o pendientes</p>
 
-  <p>Jhon Edinson, estas son tus citas programadas o pendientes</p>
+  <div *ngIf="val" class="alert alert-primary" role="alert">
+    No tienes citas pendientes
+  </div>
 
   <br />
 
-  <div class="card" style="width: 15rem;cursor:pointer">
-    <img
-      src="https://th.bing.com/th/id/OIP.BHaDfUvaq2YfsP_izs8uwQHaE8?w=264&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-      class="card-img-top"
-      alt="..."
-    />
+  <div *ngIf="!val" class="card" style="width: 15rem;cursor:pointer">
+    <figure
+      class="crd"
+      (click)="r()"
+      role="dialog"
+      data-toggle="modal"
+      data-target="#staticBackdrop"
+    >
+      <img
+        src="https://th.bing.com/th/id/OIP.BHaDfUvaq2YfsP_izs8uwQHaE8?w=264&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7"
+        class="card-img-top img"
+        alt="..."
+      />
+    </figure>
+
     <div class="card-body">
-      <h5 class="card-title">
-        CONSULTA MEDICINA GENERAL SALUD CITA PRESENCIAL
-      </h5>
+      <h5 class="card-title">CONSULTA MEDICINA GENERAL SALUD</h5>
 
       <a> <h6>DIANA PATRICIA VASQUEZ POTES</h6></a>
       <a> <cite>PS COLSUBSIDIO NORTE</cite></a>
@@ -96,3 +96,59 @@
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="product-modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add new product</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Product Name</label>
+            <input type="text" class="form-control" />
+            <label>Quantity</label>
+            <input type="number" class="form-control" min="1" />
+          </div>
+          <div class="col-md-6">
+            <label>Type</label>
+            <select class="form-control">
+              <option value="1">Thuc Pham Chuc Nang</option>
+              <option value="2">Do Choi Tre Em</option>
+            </select>
+            <label>Price</label>
+            <input type="text" value="0" class="form-control" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>MFG</label>
+            <input type="date" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label>EXP</label>
+            <input type="date" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#product-modal"
+>
+  <i class="bi bi-plus-lg"></i>
+  Add New
+</button>
